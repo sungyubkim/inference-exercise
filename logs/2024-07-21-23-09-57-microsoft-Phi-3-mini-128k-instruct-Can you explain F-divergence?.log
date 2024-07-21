@@ -1,0 +1,33 @@
+2024-07-21-23:11:13 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain F-divergence?']
+2024-07-21-23:11:52 ERROR 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.78s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.54s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.43s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are not running the flash-attention implementation, expect numerical differences.
+
+2024-07-21-23:11:52 INFO <|user|> Can you explain F-divergence?<|end|><|assistant|> F-divergence is a class of functions used to measure the difference between two probability distributions. It is a generalization of several divergence measures, such as Kullback-Leibler divergence (KL divergence), Jensen-Shannon divergence, and Hellinger distance. F-divergence is defined for two probability distributions P and Q over the same probability space and is parameterized by a convex function f that satisfies certain conditions.
+
+The F-divergence between P and Q is given by the following formula:
+
+D_f(P||Q) = E_P[f(D_Q(P||q))]
+
+where D_Q(P||q) is the relative entropy (or KL divergence) between P and a random variable X that follows the distribution Q, and E_P denotes the expectation with respect to the distribution P.
+
+The function f is called the generating function of the F-divergence, and it must satisfy the following properties:
+
+1. f(1) = 0
+2. f(x) ≥ 0 for all x ≥ 0
+3. f(x) = 0 for all x ≤ 0
+4. f(x) is convex
+
+Some common examples of F-divergence include:
+
+1. Kullback-Leibler divergence (KL divergence): D_f(P||Q) = KL(P||Q), where f(x) = x log(x)
+2. Jensen-Shannon divergence: D_f(P||Q) = JS(P||Q), where f(x) = (x^2 + 1)/2
+3. α-divergence: D_f(P||Q) = α(P||Q), where f(x) = (x^(α-1) - 1)/(α(α-1)) for α ≠ 1 and f(x) = log(x) for α = 1
+
+F-divergence has various applications in information theory, statistics, machine learning, and other fields. It is used to quantify the difference between two probability distributions, to measure the performance of statistical estimators, and to compare the similarity of data samples.<|end|>
+
+2024-07-21-23:11:52 INFO Process Process-4 finished with exit code 0

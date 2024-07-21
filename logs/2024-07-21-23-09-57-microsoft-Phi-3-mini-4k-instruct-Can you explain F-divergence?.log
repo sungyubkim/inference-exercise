@@ -1,0 +1,27 @@
+2024-07-21-23:10:49 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain F-divergence?']
+2024-07-21-23:11:13 ERROR 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.87s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.34s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.42s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are not running the flash-attention implementation, expect numerical differences.
+
+2024-07-21-23:11:13 INFO <|user|> Can you explain F-divergence?<|end|><|assistant|> F-divergence is a concept in information theory and statistics that measures the difference between two probability distributions. It is a way to quantify how one probability distribution diverges from a second, expected probability distribution. F-divergences are a class of functions that are parameterized by a convex function, which is applied to the ratio of the two probability distributions.
+
+
+The general form of an F-divergence is given by:
+
+
+\[ D_F(P||Q) = \frac{1}{\alpha - 1} \left( F\left(\frac{\alpha p(x)}{\alpha p(x) + (1 - \alpha) q(x)}\right) - \frac{\alpha}{1 - \alpha} F\left(\frac{p(x)}{1 - \alpha + \alpha q(x)}\right) \right) \]
+
+
+where \( P \) and \( Q \) are the two probability distributions, \( p(x) \) and \( q(x) \) are their respective probability mass functions, \( \alpha \) is a parameter that determines the type of F-divergence, and \( F \) is a convex function.
+
+
+Some common examples of F-divergences include the Kullback-Leibler divergence (when \( \alpha = 1 \)), the chi-squared divergence (when \( \alpha = 2 \)), and the Hellinger divergence (when \( \alpha = 2 \) and \( F(t) = \sqrt{t(1-t)} \)).
+
+
+F-divergences are widely used in various fields such as machine learning, information theory, and statistics for tasks like model selection, hypothesis testing, and measuring the performance of probabilistic models.<|end|>
+
+2024-07-21-23:11:13 INFO Process Process-3 finished with exit code 0

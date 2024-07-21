@@ -6,24 +6,38 @@ from datetime import datetime
 from multiprocessing import Process, Queue, current_process
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--max_processes', type=int, default=1, help='Maximum number of processes to run concurrently')
+parser = argparse.ArgumentParser(description='Run inference on multiple models and prompts in parallel.')
+parser.add_argument('--max_processes', type=int, default=1, help='Maximum number of processes to run in parallel.')
 args = parser.parse_args()
 
-# logging 모듈 설정, 로그 파일의 이름은 현재 시간을 포함하여 자동으로 생성
-logging.basicConfig(
-    level=logging.INFO,  # 로그 레벨 설정
-    format='%(asctime)s %(levelname)s %(message)s',  # 로그 메시지 포맷
-    datefmt='%Y-%m-%d-%H:%M:%S',  # 시간 포맷
-    handlers=[
-        logging.FileHandler(f'./logs/{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.log'),
-        logging.StreamHandler(sys.stdout)  # 콘솔 출력 핸들러
-    ]
-)
+def setup_logger(log_file):
+    """새로운 로거를 설정하여 특정 파일에 로그를 저장"""
+    logger = logging.getLogger(str(current_process().pid))
+    logger.setLevel(logging.INFO)
+    
+    # 파일 핸들러 설정
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(logging.INFO)
+    
+    # 콘솔 핸들러 설정
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(logging.INFO)
+    
+    # 포맷터 설정
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d-%H:%M:%S')
+    file_handler.setFormatter(formatter)
+    console_handler.setFormatter(formatter)
+    
+    # 핸들러를 로거에 추가
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
 
-def worker(script_path, args, queue):
+def worker(script_path, args, queue, log_file):
     """각 프로세스에서 실행될 작업 함수"""
-    queue.put((logging.INFO, f"Running script at {script_path} with args: {args}"))
+    logger = setup_logger(log_file)
+    logger.info(f"Running script at {script_path} with args: {args}")
     command = ['python', script_path] + list(args)
     # 프로세스 시작
     process = subprocess.Popen(
@@ -39,24 +53,16 @@ def worker(script_path, args, queue):
         error = process.stderr.read()
         
         if error:
-            queue.put((logging.ERROR, error))
+            logger.error(error)
         
         if output:
-            queue.put((logging.INFO, output))
+            logger.info(output)
         
         if process.poll() is not None:
             break
         time.sleep(0.1)  # 짧은 대기 시간 추가
 
-    queue.put((logging.INFO, f"Process {current_process().name} finished with exit code {process.poll()}"))
-
-def logger(queue):
-    """로그 메시지를 기록하는 함수"""
-    while True:
-        level, message = queue.get()
-        if message == "DONE":
-            break
-        logging.log(level, message)
+    logger.info(f"Process {current_process().name} finished with exit code {process.poll()}")
 
 if __name__ == "__main__":
     prompt_list = [
@@ -70,8 +76,6 @@ if __name__ == "__main__":
     ]
     
     queue = Queue()
-    log_process = Process(target=logger, args=(queue,))
-    log_process.start()
 
     processes = []
     task_queue = []
@@ -79,14 +83,17 @@ if __name__ == "__main__":
     for prompt in prompt_list:
         for model in model_list:
             script_path = f"runw/inference-phi3.py"
-            python_args = ["--model", model, "--prompt", prompt]
-            task_queue.append((script_path, python_args))
+            py_args = ["--model", model, "--prompt", prompt]
+            model_replaced = model.replace('/','-')
+            prompt_replaced = prompt.replace('/','-')
+            log_file = f'./logs/{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}-{model_replaced}-{prompt_replaced}.log'
+            task_queue.append((script_path, py_args, log_file))
 
     while task_queue or processes:
         # 실행할 수 있는 프로세스가 있고, 현재 실행 중인 프로세스 수가 최대 프로세스 수보다 적으면
         while task_queue and len(processes) < args.max_processes:
-            script_path, python_args = task_queue.pop(0)
-            p = Process(target=worker, args=(script_path, python_args, queue))
+            script_path, py_args, log_file = task_queue.pop(0)
+            p = Process(target=worker, args=(script_path, py_args, queue, log_file))
             p.start()
             processes.append(p)
 
@@ -97,7 +104,3 @@ if __name__ == "__main__":
                 processes.remove(p)
 
         time.sleep(0.1)
-
-    queue.put((logging.INFO, "All processes completed."))
-    queue.put((logging.INFO, "DONE"))
-    log_process.join()

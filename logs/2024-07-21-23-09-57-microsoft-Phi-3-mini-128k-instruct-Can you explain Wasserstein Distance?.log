@@ -1,0 +1,27 @@
+2024-07-21-23:12:11 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain Wasserstein Distance?']
+2024-07-21-23:12:41 ERROR 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.88s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.34s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.27s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are not running the flash-attention implementation, expect numerical differences.
+
+2024-07-21-23:12:41 INFO <|user|> Can you explain Wasserstein Distance?<|end|><|assistant|> The Wasserstein distance, also known as the Earth Mover's Distance (EMD), is a measure of the distance between two probability distributions on a given metric space. It is based on the concept of optimal transport, which seeks the most efficient way to transform one distribution into another.
+
+
+Mathematically, the Wasserstein distance is defined as the minimum cost required to turn one distribution into the other, where the cost is measured by the amount of "work" required to move a distribution's mass. This work is quantified as the product of the amount of mass moved and the distance it is moved.
+
+
+For two discrete probability distributions P and Q with the same support, the Wasserstein distance is given by:
+
+
+\[ W_p(P, Q) = \inf_{\gamma \in \Gamma(P, Q)} \int_{X \times X} d(x, y) d\gamma(x, y) \]
+
+
+where \( \Gamma(P, Q) \) is the set of all joint distributions \( \gamma \) whose marginals are P and Q, and \( d(x, y) \) is the ground distance between points x and y in the space X.
+
+
+In the context of machine learning, the Wasserstein distance is particularly useful in generative models, such as Generative Adversarial Networks (GANs), where it can provide a more meaningful and smooth gradient for training compared to other distance measures like the Jensen-Shannon divergence.<|end|>
+
+2024-07-21-23:12:41 INFO Process Process-6 finished with exit code 0

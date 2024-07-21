@@ -1,0 +1,27 @@
+2024-07-21-23:10:18 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain Jensen-Shannon Divergence?']
+2024-07-21-23:10:48 ERROR 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.77s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.49s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.38s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are not running the flash-attention implementation, expect numerical differences.
+
+2024-07-21-23:10:48 INFO <|user|> Can you explain Jensen-Shannon Divergence?<|end|><|assistant|> Jensen-Shannon Divergence (JSD) is a method of measuring the similarity between two probability distributions. It is a symmetric and finite version of the Kullback-Leibler divergence (KLD), which is a measure of how one probability distribution diverges from a second, expected probability distribution.
+
+
+The JSD is defined as the average KLD between each distribution and the average of both distributions. Mathematically, if we have two probability distributions P and Q, the JSD is given by:
+
+
+\[ JSD(P || Q) = \frac{1}{2} D_{KL}(P || M) + \frac{1}{2} D_{KL}(Q || M) \]
+
+
+where \( M = \frac{1}{2}(P + Q) \) and \( D_{KL}(P || Q) \) is the Kullback-Leibler divergence from Q to P, defined as:
+
+
+\[ D_{KL}(P || Q) = \sum_{i} P(i) \log\frac{P(i)}{Q(i)} \]
+
+
+The JSD has a range from 0 to 1, where 0 indicates that the distributions are identical, and 1 indicates that the distributions are completely different. It is widely used in various fields such as information theory, machine learning, and bioinformatics for tasks like clustering, information retrieval, and feature selection.<|end|>
+
+2024-07-21-23:10:48 INFO Process Process-2 finished with exit code 0

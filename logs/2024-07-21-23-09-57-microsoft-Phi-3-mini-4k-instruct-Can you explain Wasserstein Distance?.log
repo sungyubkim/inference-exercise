@@ -1,0 +1,18 @@
+2024-07-21-23:11:52 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain Wasserstein Distance?']
+2024-07-21-23:12:11 ERROR 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.91s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.25s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.35s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+You are not running the flash-attention implementation, expect numerical differences.
+
+2024-07-21-23:12:11 INFO <|user|> Can you explain Wasserstein Distance?<|end|><|assistant|> The Wasserstein distance, also known as the Earth Mover's Distance (EMD), is a measure of the distance between two probability distributions over a given metric space. It is based on the concept of optimal transport, which seeks the most efficient way to transform one distribution into another.
+
+
+Mathematically, the Wasserstein distance is defined as the minimum cost of transporting mass in transforming one distribution into another. This cost is calculated by considering the amount of mass to be moved and the distance it must be moved. The Wasserstein distance is particularly useful in comparing distributions that may not have the same support or may be discretized differently.
+
+
+In the context of machine learning, the Wasserstein distance has been used in generative models, such as Generative Adversarial Networks (GANs), to measure the difference between the generated distribution and the real data distribution. It provides a more meaningful and smooth gradient for training generative models, especially when dealing with distributions that are not aligned or have different supports.<|end|>
+
+2024-07-21-23:12:11 INFO Process Process-5 finished with exit code 0
