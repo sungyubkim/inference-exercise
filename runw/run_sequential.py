@@ -10,7 +10,7 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s',  # 로그 메시지 포맷
     datefmt='%Y-%m-%d-%H:%M:%S',  # 시간 포맷
     handlers=[
-        logging.FileHandler(f'./logs/{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.log'),  # 파일 출력 핸들러
+        logging.FileHandler(f'./logs/{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.log'),
         logging.StreamHandler(sys.stdout)  # 콘솔 출력 핸들러
     ]
 )
@@ -58,4 +58,4 @@ for prompt in prompt_list:
     for model in model_list:
         script_path = f"runw/inference-phi3.py"
         args = ["--model", model, "--prompt", prompt]
-        print(run_script_with_args(script_path, *args))
+        run_script_with_args(script_path, *args)
