@@ -1,13 +1,13 @@
-2024-07-21-22:24:59 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain Jensen-Shannon Divergence?']
-2024-07-21-22:25:20 ERROR 
+2024-07-21-22:34:28 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain Jensen-Shannon Divergence?']
+2024-07-21-22:34:49 ERROR 
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.45s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.48s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.63s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.26s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.46s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.58s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 You are not running the flash-attention implementation, expect numerical differences.
 
-2024-07-21-22:25:20 INFO <|user|> Can you explain Jensen-Shannon Divergence?<|end|><|assistant|> Jensen-Shannon Divergence (JSD) is a method of measuring the similarity between two probability distributions. It is a symmetrical and smoothed version of the Kullback-Leibler Divergence (KLD), which is not symmetric and can be infinite if the distributions do not overlap.
+2024-07-21-22:34:49 INFO <|user|> Can you explain Jensen-Shannon Divergence?<|end|><|assistant|> Jensen-Shannon Divergence (JSD) is a method of measuring the similarity between two probability distributions. It is a symmetrical and smoothed version of the Kullback-Leibler Divergence (KLD), which is not symmetric and can be infinite if the distributions do not overlap.
 
 
 The JSD is defined as the average KLD from each distribution to the midpoint distribution between them. Mathematically, for two probability distributions P and Q, the JSD is given by:
@@ -21,17 +21,17 @@ where \( M = \frac{1}{2}(P + Q) \) and \( D_{KL}(P || Q) = \sum P(x) \log \frac{
 
 The JSD has a range of [0, 1], where 0 indicates that the two distributions are identical, and 1 indicates that the distributions are completely different. It is widely used in various fields such as information theory, machine learning, and bioinformatics for tasks like clustering, classification, and feature selection.<|end|>
 
-2024-07-21-22:25:20 INFO Process Process-2 finished with exit code 0
-2024-07-21-22:25:20 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain Jensen-Shannon Divergence?']
-2024-07-21-22:25:49 ERROR 
+2024-07-21-22:34:49 INFO Process Process-2 finished with exit code 0
+2024-07-21-22:34:49 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain Jensen-Shannon Divergence?']
+2024-07-21-22:35:19 ERROR 
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.96s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.33s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.27s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.06s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.64s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.55s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 You are not running the flash-attention implementation, expect numerical differences.
 
-2024-07-21-22:25:49 INFO <|user|> Can you explain Jensen-Shannon Divergence?<|end|><|assistant|> Jensen-Shannon Divergence (JSD) is a method of measuring the similarity between two probability distributions. It is a symmetric and finite version of the Kullback-Leibler divergence (KLD), which is a measure of how one probability distribution diverges from a second, expected probability distribution.
+2024-07-21-22:35:19 INFO <|user|> Can you explain Jensen-Shannon Divergence?<|end|><|assistant|> Jensen-Shannon Divergence (JSD) is a method of measuring the similarity between two probability distributions. It is a symmetric and finite version of the Kullback-Leibler divergence (KLD), which is a measure of how one probability distribution diverges from a second, expected probability distribution.
 
 
 The JSD is defined as the average KLD between each distribution and the average of both distributions. Mathematically, if we have two probability distributions P and Q, the JSD is given by:
@@ -48,17 +48,17 @@ where \( M = \frac{1}{2}(P + Q) \) and \( D_{KL}(P || Q) \) is the Kullback-Leib
 
 The JSD has a range from 0 to 1, where 0 indicates that the distributions are identical, and 1 indicates that the distributions are completely different. It is widely used in various fields such as information theory, machine learning, and bioinformatics for tasks like clustering, information retrieval, and feature selection.<|end|>
 
-2024-07-21-22:25:49 INFO Process Process-3 finished with exit code 0
-2024-07-21-22:25:49 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain F-divergence?']
-2024-07-21-22:26:11 ERROR 
+2024-07-21-22:35:19 INFO Process Process-3 finished with exit code 0
+2024-07-21-22:35:19 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain F-divergence?']
+2024-07-21-22:35:42 ERROR 
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.12s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.39s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.50s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.09s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.37s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.48s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 You are not running the flash-attention implementation, expect numerical differences.
 
-2024-07-21-22:26:11 INFO <|user|> Can you explain F-divergence?<|end|><|assistant|> F-divergence is a concept in information theory and statistics that measures the difference between two probability distributions. It is a way to quantify how one probability distribution diverges from a second, expected probability distribution. F-divergences are a class of functions that are parameterized by a convex function, which is applied to the ratio of the two probability distributions.
+2024-07-21-22:35:42 INFO <|user|> Can you explain F-divergence?<|end|><|assistant|> F-divergence is a concept in information theory and statistics that measures the difference between two probability distributions. It is a way to quantify how one probability distribution diverges from a second, expected probability distribution. F-divergences are a class of functions that are parameterized by a convex function, which is applied to the ratio of the two probability distributions.
 
 
 The general form of an F-divergence is given by:
@@ -75,17 +75,17 @@ Some common examples of F-divergences include the Kullback-Leibler divergence (w
 
 F-divergences are widely used in various fields such as machine learning, information theory, and statistics for tasks like model selection, hypothesis testing, and measuring the performance of probabilistic models.<|end|>
 
-2024-07-21-22:26:11 INFO Process Process-4 finished with exit code 0
-2024-07-21-22:26:12 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain F-divergence?']
-2024-07-21-22:26:50 ERROR 
+2024-07-21-22:35:42 INFO Process Process-4 finished with exit code 0
+2024-07-21-22:35:42 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain F-divergence?']
+2024-07-21-22:36:19 ERROR 
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.16s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.86s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.75s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  3.00s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.51s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.44s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 You are not running the flash-attention implementation, expect numerical differences.
 
-2024-07-21-22:26:50 INFO <|user|> Can you explain F-divergence?<|end|><|assistant|> F-divergence is a class of functions used to measure the difference between two probability distributions. It is a generalization of several divergence measures, such as Kullback-Leibler divergence (KL divergence), Jensen-Shannon divergence, and Hellinger distance. F-divergence is defined for two probability distributions P and Q over the same probability space and is parameterized by a convex function f that satisfies certain conditions.
+2024-07-21-22:36:19 INFO <|user|> Can you explain F-divergence?<|end|><|assistant|> F-divergence is a class of functions used to measure the difference between two probability distributions. It is a generalization of several divergence measures, such as Kullback-Leibler divergence (KL divergence), Jensen-Shannon divergence, and Hellinger distance. F-divergence is defined for two probability distributions P and Q over the same probability space and is parameterized by a convex function f that satisfies certain conditions.
 
 The F-divergence between P and Q is given by the following formula:
 
@@ -108,17 +108,17 @@ Some common examples of F-divergence include:
 
 F-divergence has various applications in information theory, statistics, machine learning, and other fields. It is used to quantify the difference between two probability distributions, to measure the performance of statistical estimators, and to compare the similarity of data samples.<|end|>
 
-2024-07-21-22:26:50 INFO Process Process-5 finished with exit code 0
-2024-07-21-22:26:50 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain Wasserstein Distance?']
-2024-07-21-22:27:09 ERROR 
+2024-07-21-22:36:19 INFO Process Process-5 finished with exit code 0
+2024-07-21-22:36:19 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-4k-instruct', '--prompt', 'Can you explain Wasserstein Distance?']
+2024-07-21-22:36:37 ERROR 
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.28s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.59s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.70s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.14s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.36s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.48s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 You are not running the flash-attention implementation, expect numerical differences.
 
-2024-07-21-22:27:09 INFO <|user|> Can you explain Wasserstein Distance?<|end|><|assistant|> The Wasserstein distance, also known as the Earth Mover's Distance (EMD), is a measure of the distance between two probability distributions over a given metric space. It is based on the concept of optimal transport, which seeks the most efficient way to transform one distribution into another.
+2024-07-21-22:36:37 INFO <|user|> Can you explain Wasserstein Distance?<|end|><|assistant|> The Wasserstein distance, also known as the Earth Mover's Distance (EMD), is a measure of the distance between two probability distributions over a given metric space. It is based on the concept of optimal transport, which seeks the most efficient way to transform one distribution into another.
 
 
 Mathematically, the Wasserstein distance is defined as the minimum cost of transporting mass in transforming one distribution into another. This cost is calculated by considering the amount of mass to be moved and the distance it must be moved. The Wasserstein distance is particularly useful in comparing distributions that may not have the same support or may be discretized differently.
@@ -126,17 +126,17 @@ Mathematically, the Wasserstein distance is defined as the minimum cost of trans
 
 In the context of machine learning, the Wasserstein distance has been used in generative models, such as Generative Adversarial Networks (GANs), to measure the difference between the generated distribution and the real data distribution. It provides a more meaningful and smooth gradient for training generative models, especially when dealing with distributions that are not aligned or have different supports.<|end|>
 
-2024-07-21-22:27:09 INFO Process Process-6 finished with exit code 0
-2024-07-21-22:27:09 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain Wasserstein Distance?']
-2024-07-21-22:27:39 ERROR 
+2024-07-21-22:36:37 INFO Process Process-6 finished with exit code 0
+2024-07-21-22:36:37 INFO Running script at runw/inference-phi3.py with args: ['--model', 'microsoft/Phi-3-mini-128k-instruct', '--prompt', 'Can you explain Wasserstein Distance?']
+2024-07-21-22:37:07 ERROR 
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.99s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.27s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.23s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.22s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.37s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.35s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 You are not running the flash-attention implementation, expect numerical differences.
 
-2024-07-21-22:27:39 INFO <|user|> Can you explain Wasserstein Distance?<|end|><|assistant|> The Wasserstein distance, also known as the Earth Mover's Distance (EMD), is a measure of the distance between two probability distributions on a given metric space. It is based on the concept of optimal transport, which seeks the most efficient way to transform one distribution into another.
+2024-07-21-22:37:07 INFO <|user|> Can you explain Wasserstein Distance?<|end|><|assistant|> The Wasserstein distance, also known as the Earth Mover's Distance (EMD), is a measure of the distance between two probability distributions on a given metric space. It is based on the concept of optimal transport, which seeks the most efficient way to transform one distribution into another.
 
 
 Mathematically, the Wasserstein distance is defined as the minimum cost required to turn one distribution into the other, where the cost is measured by the amount of "work" required to move a distribution's mass. This work is quantified as the product of the amount of mass moved and the distance it is moved.
@@ -153,5 +153,5 @@ where \( \Gamma(P, Q) \) is the set of all joint distributions \( \gamma \) whos
 
 In the context of machine learning, the Wasserstein distance is particularly useful in generative models, such as Generative Adversarial Networks (GANs), where it can provide a more meaningful and smooth gradient for training compared to other distance measures like the Jensen-Shannon divergence.<|end|>
 
-2024-07-21-22:27:39 INFO Process Process-7 finished with exit code 0
-2024-07-21-22:27:39 INFO All processes completed.
+2024-07-21-22:37:07 INFO Process Process-7 finished with exit code 0
+2024-07-21-22:37:07 INFO All processes completed.

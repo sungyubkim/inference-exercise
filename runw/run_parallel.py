@@ -23,7 +23,7 @@ logging.basicConfig(
 
 def worker(script_path, args, queue):
     """각 프로세스에서 실행될 작업 함수"""
-    logging.info(f"Running script at {script_path} with args: {args}")
+    queue.put((logging.INFO, f"Running script at {script_path} with args: {args}"))
     command = ['python', script_path] + list(args)
     # 프로세스 시작
     process = subprocess.Popen(
